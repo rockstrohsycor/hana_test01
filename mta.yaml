@@ -1,0 +1,24 @@
+ID: hana_test01
+_schema-version: '2.0'
+version: 0.0.1
+modules:
+  - name: db01
+    type: hdb
+    path: db01
+    requires:
+      - name: hdi_db01
+  - name: node01
+    type: nodejs
+    path: node01
+    provides:
+      - name: node01_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: db01
+      - name: hdi_db01
+resources:
+  - name: hdi_db01
+    properties:
+      hdi-container-name: '${service-name}'
+    type: com.sap.xs.hdi-container

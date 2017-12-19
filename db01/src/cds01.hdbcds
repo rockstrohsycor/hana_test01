@@ -1,0 +1,13 @@
+namespace hana_test01.db01;
+
+context cds01 {
+    entity world {
+        key continent : String(100);
+    }
+
+    /*@@layout{"layoutInfo":{"x":-485,"y":-232.5}}*/
+    entity country {
+        key name    : String(100);
+            part_of : association[0..1] to world;
+    };
+};

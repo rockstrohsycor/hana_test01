@@ -1,0 +1,3 @@
+service {
+  "hana_test01.db01::european_countries" as "euro" keys generate local "ID";
+}
